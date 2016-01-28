@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def updated
+  def update
     @product = Product.find(params[:id])
 
     if @product.update_attributes(product_params)

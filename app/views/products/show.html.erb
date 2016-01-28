@@ -2,7 +2,6 @@
 
 <h1>Product</h1>
 
-
   <ul>
     <h4>
       <%= @product.name %>
@@ -14,3 +13,5 @@
       <%= @product.price_in_cents %>
     </li>
   </ul>
+
+  <%= link_to "Edit Product Information", "#{@product.id}/edit" %>
