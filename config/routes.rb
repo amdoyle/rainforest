@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :products
+
+  # resource :products replaces the 7 RESTful routes aka the golden 7:
+  # GET 'products' => 'products#index', as: 'products_all'
+  # GET 'products/new' => 'products#new'
+  # POST 'products' => 'products#create'
+  # GET 'products/:id/' => 'products#show', as: 'product'
+  # GET 'products/:id/edit" => 'products#edit', as 'edit_product'
+  # DELETE 'products/:id/' => 'products#destroy', as: 'delete_product'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
