@@ -25,7 +25,8 @@ class SessionsController < ApplicationController
     # and the user's id is the value (ie the session key)
       redirect_to products_url, notice: "Logged in!"
     else
-      ren
+      flash.now[:alert] = "Invalid email or passsword"
+      render :new
     end
   end
 
