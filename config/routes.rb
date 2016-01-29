@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+
   resources :products
   # This generates the 7 restful routes (see full list below)
 
   resources :users, only: [:new, :create]
   # This creates only the new route and the create route - as
   # identitfied by the 'only: [:new, :create]'
+
+  resources :sessions, only: [:new, :create, :destroy]
+  # this creates just the routes for new, create and destroy
 
 
   # resource :products replaces the 7 RESTful routes aka the golden 7:
