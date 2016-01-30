@@ -1,9 +1,9 @@
-class CreateReivews < ActiveRecord::Migration
+class CreateReviews < ActiveRecord::Migration
   def change
-    create_table :reivews do |t|
+    create_table :reviews do |t|
       t.text :comment
       t.integer :product_id
-      t.interger :user_id
+      t.integer :user_id
 
       t.timestamps null: false
     end

@@ -3,9 +3,9 @@
 one:
   comment: MyText
   product_id: 1
-  user_id: 
+  user_id: 1
 
 two:
   comment: MyText
   product_id: 1
-  user_id: 
+  user_id: 1
