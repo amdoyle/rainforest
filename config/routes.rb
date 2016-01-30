@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
-  resources :products
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy]
+  end
+
   # This generates the 7 restful routes (see full list below)
 
   resources :users, only: [:new, :create]
