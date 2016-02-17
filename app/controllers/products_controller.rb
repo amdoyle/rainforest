@@ -1,9 +1,14 @@
 class ProductsController < ApplicationController
   def index
     @products = if params[:search]
-      product.where("LOWER(name) LIKE LOWER(?)"), "%#{params[:search]}%"
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     else
     @products = Product.all
+    end
+
+    if request.xhr?
+      render @products
+    end
   end
 
   def show
