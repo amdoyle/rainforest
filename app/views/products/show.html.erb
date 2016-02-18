@@ -19,6 +19,34 @@
 
 <h3>Reviews</h3>
 
-<%= render 'user_review' %>
+<div id="review-list">
+  <%= render @product.reviews%>
+</div>
 
-<%= render 'user_review_form' %>
+<div id="new_review">
+  <%= render :partial => "/reviews/user_review_form" %>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#new_review")
+      .on('ajax:beforeSend', function() {alert("loading!");})
+      .on('ajax:success', function(data, status, xhr) {alert("success!");})
+      .on('ajax:error', function(xhr, status, error) {alert("error!");})
+      .on('ajax:complete', function() {alert("complete!");});
+});
+
+  $(function(){
+    $("#new_review")
+      .on('ajax:beforeSend', function(){
+        $("input[type='submit']")
+          .val('Saving...')
+          .attr('disabled', 'disabled');
+      })
+      .on('ajax:complete', function() {
+        $("input[type='submit']")
+          .val('Create Review')
+          .removeAttr('disabled');
+      });
+  });
+</script>

@@ -1,0 +1,11 @@
+$("#review-list").html("<%= escape_javascript(render(:partial => 'reviews/review'))%>");
+
+
+<% if @review.errors.present? %>
+  $("#review-form-errors").html("<%= escape_javascript(render(:partial => '/reviews/review_form_errors')) %>");
+<% else %>
+  $("#review-form-errors").html("");
+  $("#review-list").html("<%= escape_javascript(render(:partial => '/reviews/review'))%>");
+  $("#review_comment").val("");
+<% end %>
+// $("#review-list").apend("<%=j render @review %>")

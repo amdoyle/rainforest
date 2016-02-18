@@ -1,0 +1,11 @@
+
+<% if @review.errors.present? %>
+
+      <% @review.errors.messages.each do | error | %>
+
+        <div class="alert">
+          <% p error %>
+          <li><%= error %></li>
+        </div>
+      <% end %>
+<% end %>

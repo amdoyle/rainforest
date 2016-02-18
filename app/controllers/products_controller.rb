@@ -6,17 +6,21 @@ class ProductsController < ApplicationController
     @products = Product.all
     end
 
+    @products = @products.order('products.created_at DESC').page(params[:page])
+
     respond_to do |format|
       format.html
       format.js
     end
+
   end
 
   def show
     @product = Product.find(params[:id])
 
     if current_user
-      @review = @product.reviews.build
+      # @review = @product.reviews.build
+      @review = Review.new
     end
   end
 
